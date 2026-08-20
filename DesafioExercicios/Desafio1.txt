@@ -1,9 +1,7 @@
 using System.Threading.Channels;
-
 namespace Lista
 {
-    internal class Program
-    {
+    internal class Program    {
         static void Main(string[] args)
         {
          List<int> Lista = new List<int>();
@@ -32,3 +30,4 @@ namespace Lista
         }
     }
 }
+ 
