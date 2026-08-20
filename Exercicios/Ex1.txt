@@ -1,0 +1,17 @@
+namespace Lista
+{
+    internal class Program
+    {
+        static void Main(string[] args)
+        {
+            List<int> L = new List<int>{1, 3, 4, 8, 2, 10, 3};
+
+            foreach (var i in L.ToList())
+            {
+                if (i % 2 == 0)
+                    L.Remove(i);
+            }
+            Console.WriteLine(string.Join( ", ", L));
+        }
+    }
+}

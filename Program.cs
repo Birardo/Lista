@@ -1,0 +1,22 @@
+﻿using System.Threading.Channels;
+
+namespace Lista
+{
+    internal class Program
+    {
+        static void Main(string[] args)
+        {
+            List<int> L1 = new List<int> { 1, 3, 40, 10, 23, 4, 67, 91, 7, 2 };
+            List<int> L2 = new List<int> { 5, 10, 47, 200, 36, 18, 9, 0, 5, 76, 43, 22, 123 };
+            List<int> L3 = new List<int> (L1);
+            L3.AddRange(L2);
+
+            L3.Sort();
+                    Console.WriteLine(string.Join(", ", L3));
+            L3.Reverse();
+                    Console.WriteLine(string.Join(", ", L3));
+
+             
+        }
+    }
+}

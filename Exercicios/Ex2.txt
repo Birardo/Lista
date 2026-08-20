@@ -1,0 +1,20 @@
+using System.Threading.Channels;
+
+namespace Lista
+{
+    internal class Program
+    {
+        static void Main(string[] args)
+        {
+            List<double> P1 = new List<double> { 10, 7.8, 9, 5.5, 4.2, 10 };
+            List<double> P2 = new List<double> { 7.8, 9.3, 6, 3.9, 10, 8.4 };
+
+            Double media1 = P1.Sum() / P1.Count;
+            Double media2 = P2.Sum() / P2.Count;
+
+            if (media1 > media2)
+                Console.WriteLine("A maior média foi da prova 1");
+            else Console.WriteLine("A melhor média foi da prova 2");
+        }
+    }
+}
