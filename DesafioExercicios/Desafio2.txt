@@ -1,0 +1,39 @@
+using System.Threading.Channels;
+
+namespace Lista
+{
+    internal class Program
+    {
+        static void Main(string[] args)
+        {
+            List<int> Lista = new List<int>();
+            int multiplicador = 1;
+
+            while (true)
+            {
+                Console.WriteLine("Digite números para a lista (Envie 0 para parar)");
+                int NumeroAdicionar = Convert.ToInt32(Console.ReadLine());
+                Lista.Add(NumeroAdicionar);
+                while (NumeroAdicionar != 0)
+                {
+                        foreach (var multiplicacao in Lista)
+                        {
+                            multiplicador *= multiplicacao;
+                        }
+                        break;
+                }
+                if (NumeroAdicionar == 0)
+                    break;
+            }
+            Lista.RemoveAt(Lista.Count() - 1);
+            Lista.Reverse();
+            Console.WriteLine("O maior número é: " + Lista[0]);
+            Lista.Sort();
+            Console.WriteLine("O menor número é: " + Lista[0]);
+            
+            int SomaLista = Lista.Sum();
+            Console.WriteLine("A soma dos números inseridos é de:\n " + SomaLista);
+            Console.WriteLine("A multiplicação dos números da sua lista é: \n" + multiplicador/2);
+        }
+    }
+}
