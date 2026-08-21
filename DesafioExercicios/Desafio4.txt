@@ -1,0 +1,44 @@
+using System.Threading.Channels;
+using System.Threading.Channels;
+
+namespace Lista
+{
+    internal class Program
+    {
+        static void Main(string[] args)
+        {
+            List<int> Numeros = new List<int>();
+            List<int> NumerosQueRepetem = new List<int>();
+            List<int> NumerosIndividuas = new List<int>();
+            int NumerosEntrada;
+
+            while (true)
+            {
+                Console.WriteLine("Escreva números inteiros (digite 0 para sair)");
+                Numeros.Add(NumerosEntrada = Convert.ToInt32(Console.ReadLine()));
+                if (NumerosEntrada == 0)
+                    break;
+
+            }
+            Numeros.RemoveAt(Numeros.Count - 1);
+
+            foreach (var item in Numeros)
+            {
+                if (!NumerosIndividuas.Contains(item) && !NumerosQueRepetem.Contains(item))
+                    NumerosIndividuas.Add(item);
+
+
+                else
+                {
+                    NumerosIndividuas.Remove(item);
+                    NumerosQueRepetem.Remove(item);
+                    NumerosQueRepetem.Add(item);
+                }
+            }
+            Console.WriteLine("Os números da sua lista:  " + string.Join(", ", Numeros));
+            Console.WriteLine("Os números que não se repetem são: " + string.Join(", ", NumerosIndividuas));
+            Console.WriteLine("Os números que se repetem são: " + string.Join(", ", NumerosQueRepetem));
+
+        }
+    }
+}
