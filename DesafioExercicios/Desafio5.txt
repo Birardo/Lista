@@ -1,0 +1,56 @@
+using System.Threading.Channels;
+using System.Threading.Channels;
+
+namespace Lista
+{
+    internal class Program
+    {
+        static void Main(string[] args)
+        {
+            List<string> Perguntas = [
+                "Telefonou para a vítima? (s para sim e n para n)",
+                "Esteve no local do crime? (s para sim e n para n)",
+                "Mora perto da vítima? (s para sim e n para n)",
+                "Devia para a vítima? (s para sim e n para n)",
+                "Já trabalhou com a vítima a vítima? (s para sim e n para n)"
+                ];
+            List<bool> Respostas = new List<bool>();
+            foreach (var pergunta in Perguntas)
+            {
+
+                while (true)
+                {
+                    Console.WriteLine(pergunta);
+                    string entrada = Console.ReadLine();
+
+                    if (entrada == "s")
+                    {
+                        Respostas.Add(true);
+                        break;
+                    }
+                    else if (entrada == "n")
+                    {
+                        Respostas.Add(false);
+                        break;
+                    }
+                    else Console.WriteLine("Valor inválido! Digite 's' ou 'n'");
+
+                }
+
+
+                int ContarS = Respostas.Count(r => r);
+
+
+                string Resultado = ContarS switch  //Pesquisei se tinha como fazer de um jeito melhor que um monte de if e else if
+                {
+                    2 => "Suspeito/a",
+                    3 or 4 => "Cúmplice",
+                    5 => "Assasino/a",
+                    _ => "Inocente"
+                };
+                Console.WriteLine("O interrogatório deu que ele/a é: " + Resultado);
+            }
+        }
+
+    }
+}
