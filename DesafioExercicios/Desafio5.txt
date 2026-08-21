@@ -45,7 +45,7 @@ namespace Lista
                 {
                     2 => "Suspeito/a",
                     3 or 4 => "Cúmplice",
-                    5 => "Assasino/a",
+                    5 => "Assassino/a",
                     _ => "Inocente"
                 };
                 Console.WriteLine("O interrogatório deu que ele/a é: " + Resultado);
